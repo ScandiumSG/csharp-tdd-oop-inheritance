@@ -19,7 +19,7 @@ namespace tdd_oop_inheritance.CSharp.Main
         // is called a lambda expression (https://www.w3schools.com/java/java_lambda.asp)
         public string checkInWork(string title) 
         {
-            List<LiteraryWork> filtered = (List<LiteraryWork>)this.works.Where(work => work.title.Equals(title));
+            List<LiteraryWork> filtered = this.works.Where(work => work.title.Equals(title)).ToList();
 
             if (filtered.Count() < 1) 
             {
@@ -31,7 +31,7 @@ namespace tdd_oop_inheritance.CSharp.Main
 
         public string checkOutWork(string title)
         {
-            List<LiteraryWork> filtered = (List<LiteraryWork>)this.works.Where(work => work.title.Equals(title));
+            List<LiteraryWork> filtered = this.works.Where(work => work.title.Equals(title)).ToList();
 
             if (filtered.Count() < 1) 
             {
