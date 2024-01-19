@@ -1,10 +1,12 @@
-﻿using NUnit.Framework;
+﻿using LiteraryWorks;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using tdd_oop_inheritance.CSharp.Main;
+using tdd_oop_inheritance.CSharp.Main.Interface;
 
 namespace tdd_oop_inheritance.CSharp.Test
 {
@@ -16,17 +18,22 @@ namespace tdd_oop_inheritance.CSharp.Test
         public void SetUp()
         {
             lib = new Library();
-            LiteraryWork work1 = new Book("The Old Man and the Sea");
-            LiteraryWork work2 = new Book("Animal farm");
-            LiteraryWork work3 = new Book("The Count of Monte Cristo");
+            IAuthor defaultAuthor = new Author();
+            defaultAuthor.Name = "Author Authorson";
+            defaultAuthor.ContactInformation = "An Address 1, 9999 El Dorado";
+            defaultAuthor.Website = "MySuperAwesomeSite.com";
+
+            LiteraryWork work1 = new Book("The Old Man and the Sea", defaultAuthor);
+            LiteraryWork work2 = new Book("Animal farm", defaultAuthor);
+            LiteraryWork work3 = new Book("The Count of Monte Cristo", defaultAuthor);
 
             LiteraryWork work4 = new Newspaper("The Newspaper");
             LiteraryWork work5 = new Newspaper("The New Newspaper");
             LiteraryWork work6 = new Newspaper("The CIA front");
 
-            LiteraryWork work7 = new Article("Why Python is slow");
-            LiteraryWork work8 = new Article("Is Rust the future?");
-            LiteraryWork work9 = new Article("Matlab is the greatest programming language ever");
+            LiteraryWork work7 = new Article("Why Python is slow", defaultAuthor);
+            LiteraryWork work8 = new Article("Is Rust the future?", defaultAuthor);
+            LiteraryWork work9 = new Article("Matlab is the greatest programming language ever", defaultAuthor);
 
             lib.addToStock(work1);
             lib.addToStock(work2);
